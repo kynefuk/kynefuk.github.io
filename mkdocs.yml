@@ -64,7 +64,7 @@ markdown_extensions:
   - footnotes
   - toc:
       permalink: true
-  
+
   # Python Markdown Extensions
   - pymdownx.highlight:
       anchor_linenums: true
