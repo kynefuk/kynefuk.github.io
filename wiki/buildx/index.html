@@ -470,12 +470,6 @@ desktop-linux        docker
   desktop-linux      desktop-linux               running  linux/arm64, linux/amd64, linux/riscv64, linux/ppc64le, linux/s390x, linux/386, linux/arm/v7, linux/arm/v6
 default              docker                               
   default            default                     running  linux/arm64, linux/amd64, linux/riscv64, linux/ppc64le, linux/s390x, linux/386, linux/arm/v7, linux/arm/v6</code></p>
-<p><code>py title="bubble_sort.py"
-def bubble_sort(items):
-    for i in range(len(items)):
-        for j in range(len(items) - 1 - i):
-            if items[j] &gt; items[j + 1]:
-                items[j], items[j + 1] = items[j + 1], items[j]</code></p>
 <p><code>STATUS</code>が<code>inactive</code>になっているが、これはbuild実行時にrunnningになる。</p>
 <p>明示的に<code>running</code>にしたい場合は<code>--bootstrap</code>を実行する。
 <code>docker buildx inspect --bootstrap</code></p>
@@ -485,7 +479,7 @@ def bubble_sort(items):
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2022年4月25日 00:18:15</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2022年4月25日 00:33:53</span>
       
         <br>
         Created:
