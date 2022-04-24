@@ -9,7 +9,7 @@
       
       
       <link rel="icon" href="../../images/cat.jpg">
-      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.2.10">
+      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.2.9">
     
     
       
@@ -17,7 +17,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.df45aa19.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.120efc48.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.9647289d.min.css">
@@ -459,20 +459,23 @@
 
 <h2 id="_1">ビルダーインスタンス作成<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <p>buildkitの機能をフルに使いたい場合は、<code>--driver docker-container</code>を指定してビルダーインスタンスを作成する。</p>
-<p><code>docker buildx create --driver docker-container --name container-builder --use</code></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>docker buildx create --driver docker-container --name container-builder --use
+</code></pre></div>
 <h2 id="_2">ビルダーインスタンス確認<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <p><code>*</code>が付いているインスタンスが使用されている。</p>
-<p><code>docker buildx ls
-NAME/NODE            DRIVER/ENDPOINT             STATUS   PLATFORMS
-container-builder *  docker-container                     
-  container-builder0 unix:///var/run/docker.sock inactive 
-desktop-linux        docker                               
-  desktop-linux      desktop-linux               running  linux/arm64, linux/amd64, linux/riscv64, linux/ppc64le, linux/s390x, linux/386, linux/arm/v7, linux/arm/v6
-default              docker                               
-  default            default                     running  linux/arm64, linux/amd64, linux/riscv64, linux/ppc64le, linux/s390x, linux/386, linux/arm/v7, linux/arm/v6</code></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>docker buildx ls
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>NAME/NODE            DRIVER/ENDPOINT             STATUS   PLATFORMS
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>container-builder *  docker-container                     
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>  container-builder0 unix:///var/run/docker.sock inactive 
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>desktop-linux        docker                               
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>  desktop-linux      desktop-linux               running  linux/arm64, linux/amd64, linux/riscv64, linux/ppc64le, linux/s390x, linux/386, linux/arm/v7, linux/arm/v6
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>default              docker                               
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>  default            default                     running  linux/arm64, linux/amd64, linux/riscv64, linux/ppc64le, linux/s390x, linux/386, linux/arm/v7, linux/arm/v6
+</code></pre></div>
 <p><code>STATUS</code>が<code>inactive</code>になっているが、これはbuild実行時にrunnningになる。</p>
 <p>明示的に<code>running</code>にしたい場合は<code>--bootstrap</code>を実行する。
-<code>docker buildx inspect --bootstrap</code></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>docker buildx inspect --bootstrap
+</code></pre></div></p>
 
   <hr>
 <div class="md-source-file">
@@ -604,7 +607,7 @@ default              docker
     <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.annotate", "search.suggest", "search.highlight", "search.share", "navigation.instant", "navigation.tracking", "navigation.sections", "navigation.expand", "navigation.top", "toc.integrate", "toc.follow", "header.autohide"], "search": "../../assets/javascripts/workers/search.2a1c317c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.748e2769.min.js"></script>
+      <script src="../../assets/javascripts/bundle.6e54b5cd.min.js"></script>
       
         <script src="https://unpkg.com/tablesort@5.3.0/dist/tablesort.min.js"></script>
       
