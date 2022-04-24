@@ -6,7 +6,7 @@ theme:
   font:
     text: IBM Plex Sans
     code: Roboto Mono
-  favicon: img/favicon.png
+  favicon: images/cat.jpg
   logo: images/cat.jpg
   features:
     - content.code.annotate
