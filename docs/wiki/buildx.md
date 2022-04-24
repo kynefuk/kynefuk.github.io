@@ -7,13 +7,15 @@ tags:
 
 ## ビルダーインスタンス作成
 buildkitの機能をフルに使いたい場合は、`--driver docker-container`を指定してビルダーインスタンスを作成する。
-```bash
+
+```
 docker buildx create --driver docker-container --name container-builder --use
 ```
 
 ## ビルダーインスタンス確認
 `*`が付いているインスタンスが使用されている。
-``` 
+
+```
 docker buildx ls
 NAME/NODE            DRIVER/ENDPOINT             STATUS   PLATFORMS
 container-builder *  docker-container                     
