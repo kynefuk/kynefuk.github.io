@@ -1,0 +1,102 @@
+site_name: kata_dev
+theme:
+  name: material
+  language: en
+  custom_dir: overrides
+  font:
+    text: IBM Plex Sans
+    code: Roboto Mono
+  favicon: img/favicon.png
+  logo: images/cat.jpg
+  features:
+    - content.code.annotate
+    # 検索
+    - search.suggest
+    - search.highlight
+    - search.share
+
+    # ナビゲーション
+    - navigation.instant     ## mkdocs for MaterialのSPA対応
+    # - navigation.tabs        ## トップレベル項目を画面上部メニューにタブ表示
+    - navigation.tracking
+    - navigation.sections  ## 項目のセクション表示
+    - navigation.expand    ## 初期表示で全てのページ展開を有効化
+    - navigation.top       ## ページTOP遷移ボタンを有効化
+    - toc.integrate        ## 画面左右のメニューを統合
+    - toc.follow
+    - header.autohide
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default  ## カラースキーム設定(default:ライトモード、slate:ダークモード)
+      primary: cyan
+      accent: amber
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: indigo
+      accent: teal
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to light mode
+plugins:
+  - search:
+      lang:
+        - ja
+        - en
+      # 空白・ハイフン・ドット・アンスコを区切り文字としてインデックスする
+      separator: '[\s\-\.\_]+'
+  - tags
+  - git-revision-date-localized:
+      locale: ja
+      timezone: Asia/Tokyo
+      type: datetime
+      enable_creation_date: true
+
+markdown_extensions:
+  - meta
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+
+  # コードハイライトの設定
+  - codehilite:
+      noclasses: true
+      pygments_style: colorful
+      linenums: true
+
+  # アラート修飾の設定
+  - admonition
+  # スーパーフェンス機能の設定
+  - pymdownx.superfences
+  # コンテンツの折りたたみ設定
+  - pymdownx.details
+  - tables
+  - attr_list
+  - md_in_html
+  - footnotes
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+  - toc:
+      permalink: true
+
+extra_javascript:
+  - https://unpkg.com/tablesort@5.3.0/dist/tablesort.min.js
+  # - javascripts/tablesort.js
+
+
+extra:
+  social:
+    - icon: fontawesome/brands/twitter
+      link: https://twitter.com/kata_dev
+    - icon: fontawesome/brands/github
+      link: https://github.com/kynefuk
+  generator: false
+  analytics:
+    provider: google
+    property: !ENV [G_ANALYTICS_ID]
+copyright: Copyright © 2022 kata_dev
