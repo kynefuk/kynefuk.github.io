@@ -438,11 +438,11 @@
 
   <h1>buildxコマンドのメモ</h1>
 
-<h2 id="_1">ビルダーインスタンス作成</h2>
+<h2 id="_1">ビルダーインスタンス作成<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <p>buildkitの機能をフルに使いたい場合は、<code>--driver docker-container</code>を指定してビルダーインスタンスを作成する。
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>docker buildx create --driver docker-container --name container-builder --use
 </code></pre></div></p>
-<h2 id="_2">ビルダーインスタンス確認</h2>
+<h2 id="_2">ビルダーインスタンス確認<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <p><code>*</code>が付いているインスタンスが使用されている。
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>docker buildx ls
 <a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>NAME/NODE            DRIVER/ENDPOINT             STATUS   PLATFORMS
