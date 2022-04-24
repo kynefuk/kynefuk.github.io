@@ -1,16 +1,35 @@
 {% extends "base.html" %}
 
+{% block extrahead %}
+<meta property="og:title" content="{{ page.title }} - kynefuk.github.io">
+<meta name="twitter:title" content="{{ page.title }} - kynefuk.github.io">
+{% if page and page.meta and page.meta.description %}
+<meta property="og:description" content="{{ page.meta.description }}">
+{% endif %}
+
+{% if page and page.meta and page.meta.image %}
+<meta property="og:image" content="{{ page.meta.image }}">
+<meta name="twitter:image" content="{{ page.meta.image }}">
+{% else %}
+<meta property="og:image" content="https://kynefuk.github.io/images/cat.jpg">
+<meta name="twitter:image" content="https://kynefuk.github.io/images/cat.jpg">
+{% endif %}
+
+{% if page and page.meta and page.meta.type %}
+<meta property="og:type" content="{{ page.meta.type }}">
+{% else %}
+<meta property="og:type" content="article">
+{% endif %}
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@kata_dev">
+<meta name="twitter:creator" content="@kata_dev">
+<meta property="og:locale" content="ja_JP">
+
+{% endblock %}
+
 {% block content %}
 {{ super() }}
-
-
-{% if git_page_authors %}
-<div class="md-source-date">
-  <small>
-    Authors: {{ git_page_authors | default('enable mkdocs-git-authors-plugin') }}
-  </small>
-</div>
-{% endif %}
 
 <!-- Giscus -->
 <h2 id="__comments">{{ lang.t("meta.comments") }}</h2>

@@ -1,5 +1,6 @@
 ---
 title: ホーム
+image: images/cat.jpg
 ---
 
 # Welcome to kata_dev's blog
