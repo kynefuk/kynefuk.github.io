@@ -55,34 +55,37 @@ plugins:
       enable_creation_date: true
 
 markdown_extensions:
+  # Python Markdown
   - meta
-  - pymdownx.highlight:
-      anchor_linenums: true
-  - pymdownx.inlinehilite
-  - pymdownx.snippets
-  - pymdownx.superfences
-
-  # コードハイライトの設定
-  - codehilite:
-      noclasses: true
-      pygments_style: colorful
-      linenums: true
-
-  # アラート修飾の設定
-  - admonition
-  # スーパーフェンス機能の設定
-  - pymdownx.superfences
-  # コンテンツの折りたたみ設定
-  - pymdownx.details
+  - admonition # アラート修飾の設定
   - tables
   - attr_list
   - md_in_html
   - footnotes
+  - toc:
+      permalink: true
+  
+  # Python Markdown Extensions
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
   - pymdownx.emoji:
       emoji_index: !!python/name:materialx.emoji.twemoji
       emoji_generator: !!python/name:materialx.emoji.to_svg
-  - toc:
-      permalink: true
+  - pymdownx.caret
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.tilde
+  - pymdownx.details # コンテンツの折りたたみ設定
 
 extra_javascript:
   - https://unpkg.com/tablesort@5.3.0/dist/tablesort.min.js
