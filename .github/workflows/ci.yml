@@ -13,6 +13,6 @@ jobs:
           ref: main
       - uses: actions/setup-python@v3
         with:
-          python-version: 3.10
+          python-version: '3.10.4'
       - run: pip install --upgrade pip && pip install mkdocs-material mkdocs-git-revision-date-localized-plugin
       - run: mkdocs gh-deploy --force
