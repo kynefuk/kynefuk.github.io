@@ -13,7 +13,7 @@ docker buildx create --driver docker-container --name container-builder --use
 
 ## ビルダーインスタンス確認
 `*`が付いているインスタンスが使用されている。
-``` bash
+``` 
 docker buildx ls
 NAME/NODE            DRIVER/ENDPOINT             STATUS   PLATFORMS
 container-builder *  docker-container                     
@@ -27,7 +27,7 @@ default              docker
 `STATUS`が`inactive`になっているが、これはbuild実行時にrunnningになる。
 
 明示的に`running`にしたい場合は`--bootstrap`を実行する。
-``` bash
+``` 
 docker buildx inspect --bootstrap
 ```
 
