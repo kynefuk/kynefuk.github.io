@@ -410,6 +410,54 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    ビルド
+  </a>
+  
+    <nav class="md-nav" aria-label="ビルド">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#local" class="md-nav__link">
+    local
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#docker" class="md-nav__link">
+    docker
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#oci" class="md-nav__link">
+    oci
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#image" class="md-nav__link">
+    image
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#registry" class="md-nav__link">
+    registry
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -476,6 +524,77 @@
 <p>明示的に<code>running</code>にしたい場合は<code>--bootstrap</code>を実行する。
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>docker buildx inspect --bootstrap
 </code></pre></div></p>
+<h2 id="_3">ビルド<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p>buildxによるビルドでは通常のdocker buildと異なり、<code>--output</code>を指定する必要がある。</p>
+<table>
+<thead>
+<tr>
+<th><code>--output</code>のtype</th>
+<th>意味</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>local</td>
+<td>ビルド結果をローカルに出力する</td>
+</tr>
+<tr>
+<td>docker</td>
+<td>ビルド結果をdockerイメージとして出力する</td>
+</tr>
+<tr>
+<td>registry</td>
+<td>ビルド結果をコンテナレジストリに出力する</td>
+</tr>
+<tr>
+<td>oci</td>
+<td>ビルド結果をOCIイメージとして出力する</td>
+</tr>
+<tr>
+<td>image</td>
+<td>ビルド結果をコンテナ出力する</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th><code>--output</code>のエイリアス</th>
+<th>意味</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>--load</td>
+<td><code>--output=type=docker</code></td>
+</tr>
+<tr>
+<td>--push</td>
+<td><code>--output=type=registry</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="local">local<a class="headerlink" href="#local" title="Permanent link">&para;</a></h3>
+<p>ビルド結果のファイルを全てローカルに出力する。
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>docker buildx build -t hoge --output type=local,dest=/tmp .
+</code></pre></div></p>
+<h3 id="docker">docker<a class="headerlink" href="#docker" title="Permanent link">&para;</a></h3>
+<p>ビルド結果をDocker image specificationに基づいたtar形式で出力する。
+<code>type=docker</code>を指定した場合は、multiplatformなイメージは出力できない。
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>docker buildx build -t hoge --output type=docker,dest=hoge-image .
+</code></pre></div></p>
+<h3 id="oci">oci<a class="headerlink" href="#oci" title="Permanent link">&para;</a></h3>
+<p>ビルド結果をOCI image layoutに基づいたtar形式で出力する。
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>docker buildx build -t hoge --output type=oci,dest=hoge-oci .
+</code></pre></div></p>
+<h3 id="image">image<a class="headerlink" href="#image" title="Permanent link">&para;</a></h3>
+<p>ビルド結果をコンテナイメージとして出力する。
+<code>docker</code>ドライバーを使用した場合はdockerイメージが出力される。
+<code>push=true</code>を指定すると、ビルド結果をレジストリにpushする。
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>docker buildx build -t hoge --output type=image,name=hoge/fuga push=true .
+</code></pre></div></p>
+<h3 id="registry">registry<a class="headerlink" href="#registry" title="Permanent link">&para;</a></h3>
+<p><code>type=image,push=true</code>の短縮形</p>
 
   <hr>
 <div class="md-source-file">
