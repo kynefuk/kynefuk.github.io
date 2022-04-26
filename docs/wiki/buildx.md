@@ -30,7 +30,52 @@ default              docker
 `STATUS`が`inactive`になっているが、これはbuild実行時にrunnningになる。
 
 明示的に`running`にしたい場合は`--bootstrap`を実行する。
-``` 
+```
 docker buildx inspect --bootstrap
 ```
 
+## ビルド
+buildxによるビルドでは通常のdocker buildと異なり、`--output`を指定する必要がある。
+
+| `--output`のtype | 意味                                     |
+| ---------------- | ---------------------------------------- |
+| local            | ビルド結果をローカルに出力する           |
+| docker           | ビルド結果をdockerイメージとして出力する |
+| registry         | ビルド結果をコンテナレジストリに出力する |
+| oci              | ビルド結果をOCIイメージとして出力する    |
+| image            | ビルド結果をコンテナ出力する             |
+
+| `--output`のエイリアス | 意味                     |
+| ---------------------- | ------------------------ |
+| --load                 | `--output=type=docker`   |
+| --push                 | `--output=type=registry` |
+
+### local
+ビルド結果のファイルを全てローカルに出力する。
+```
+docker buildx build -t hoge --output type=local,dest=/tmp .
+```
+
+### docker
+ビルド結果をDocker image specificationに基づいたtar形式で出力する。
+`type=docker`を指定した場合は、multiplatformなイメージは出力できない。
+```
+docker buildx build -t hoge --output type=docker,dest=hoge-image .
+```
+
+### oci
+ビルド結果をOCI image layoutに基づいたtar形式で出力する。
+```
+docker buildx build -t hoge --output type=oci,dest=hoge-oci .
+```
+
+### image
+ビルド結果をコンテナイメージとして出力する。
+`docker`ドライバーを使用した場合はdockerイメージが出力される。
+`push=true`を指定すると、ビルド結果をレジストリにpushする。
+```
+docker buildx build -t hoge --output type=image,name=hoge/fuga push=true .
+```
+
+### registry
+`type=image,push=true`の短縮形

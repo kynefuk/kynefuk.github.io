@@ -53,6 +53,7 @@ plugins:
       timezone: Asia/Tokyo
       type: datetime
       enable_creation_date: true
+  - rss
 
 markdown_extensions:
   # Python Markdown
